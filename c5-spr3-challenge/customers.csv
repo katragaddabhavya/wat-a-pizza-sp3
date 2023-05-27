@@ -1,0 +1,159 @@
+HTTP Request,Fetch all customer details,Fetch Customer by ID,Fetch Customer by Name,Fetch Customer by Email,Add new customer,Update customer details
+1.View all menu items
+    title is specified as query string parameter in the URL in the format `http://localhost:3001/customers
+    Request URL --> http://localhost:3001/customers
+- HTTP Method --> GET
+- Response Expected --> JSON 
+    ```json
+    [
+    {
+        "id": 1,
+        "name": "David",
+        "email": "david@gmail.com",
+        "phoneNumber": "+11527896543",
+        "address": {
+            "streetName": "Court Street",
+            "streetNo": "123",
+            "postalCode": "2617"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Mary",
+        "email": "mary@gmail.com",
+        "phoneNumber": "+11524449876",
+        "address": {
+            "streetName": "Scottsdale Kierland",
+            "streetNo": "100",
+            "postalCode": "85254"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Jennifer",
+        "email": "Jennifer@yahoo.com",
+        "phoneNumber": "+11525432178",
+        "address": {
+            "streetName": "Beachwalk",
+            "streetNo": "902",
+            "postalCode": "96815"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Jessica",
+        "email": "Jessica@live.com",
+        "phoneNumber": "+11523456732",
+        "address": {
+            "streetName": "Bellevue Square",
+            "streetNo": "378",
+            "postalCode": "98004"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Paul",
+        "email": "Paul@gmail.com",
+        "phoneNumber": "+11526789543",
+        "address": {
+            "streetName": "Buena Vista Drive",
+            "streetNo": "A-498",
+            "postalCode": "32830"
+        }
+    }
+]
+Status Code --> 200
+    - Status Message --> OK
+
+2.Search customer by name   
+title is specified as query string parameter in the URL in the format `http://localhost:3001/customers?name=value
+    Request URL --> http://localhost:3001/customers?name=Jennifer
+- HTTP Method --> GET
+- Response Expected --> JSON 
+    ```json
+    [
+    {
+        "id": 3,
+        "name": "Jennifer",
+        "email": "Jennifer@yahoo.com",
+        "phoneNumber": "+11525432178",
+        "address": {
+            "streetName": "Beachwalk",
+            "streetNo": "902",
+            "postalCode": "96815"
+        }
+    }
+]
+Status Code --> 200
+    - Status Message --> OK
+
+3.adding details of new customer
+Request URL --> http://localhost:3001/customers
+- HTTP Method --> POST
+- Request Body
+    - Content Type --> JSON
+    - Body
+    ```json
+    {
+    "id": 6,
+    "name": "budda",
+    "email": "budda@yahoo.com",
+    "phoneNumber": "+91987654321",
+    "address": {
+        "streetName": "JNTU",
+        "streetNo": "319",
+        "postalCode": "500072"
+    }
+}
+    ```
+- Response Expected --> JSON Object
+    ```json
+    {
+    "id": 6,
+    "name": "budda",
+    "email": "budda@yahoo.com",
+    "phoneNumber": "+91987654321",
+    "address": {
+        "streetName": "JNTU",
+        "streetNo": "319",
+        "postalCode": "500072"
+    }
+}
+    ```
+    - Status Code --> 201
+    - Status Message --> Created
+ 4.Modify the contact details of an existing customer, based on customer’s request.
+ Request URL --> http://localhost:3001/customer/308
+- HTTP Method --> PUT
+- Request Body
+    - Content Type --> JSON
+    - Body
+    ```json
+    {
+    "id": 4,
+    "name": "john",
+    "email": "john@yahoo.com",
+    "phoneNumber": "+91987652222",
+    "address": {
+        "streetName": "canada",
+        "streetNo": "319",
+        "postalCode": "100256"
+    }
+}
+    ```
+- Response Expected --> JSON Object
+    ```json
+    {
+    "id": 4,
+    "name": "john",
+    "email": "john@yahoo.com",
+    "phoneNumber": "+91987652222",
+    "address": {
+        "streetName": "canada",
+        "streetNo": "319",
+        "postalCode": "100256"
+    }
+}
+    ```
+    - Status Code --> 200
+    - Status Message --> OK   
